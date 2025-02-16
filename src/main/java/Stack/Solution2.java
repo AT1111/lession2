@@ -2,10 +2,7 @@ package Stack;
 
 class Solution2 {
     public static void main(String[] args) throws Exception {
-        String s="()";
-        //String s="()[]{}";
-        //String s="(]";
-        //String s="([])";
+        String s="][";
         System.out.print(isValid(s));
     }
 
@@ -41,7 +38,7 @@ class Solution2 {
                 default:
                     throw new Exception("Bad symbol in the string.");
             }
-            if(count1<0 || count2<0 || count3<0)
+            if(count1 < 0 || count2 < 0 || count3 < 0)
                 return false;
         }
         return true;

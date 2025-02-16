@@ -1,45 +1,37 @@
 package Array;
 
+import java.util.Arrays;
+
 public class Solution3 {
     public static void main(String[] args) throws Exception {
         int[] nums = {0,1,0,3,12};
         //int[] nums = {0};
 
-        print(nums);
+        System.out.println(Arrays.toString(nums));
 
         moveZeroes(nums);
-        print(nums);
+        System.out.println(Arrays.toString(nums));
     }
 
     public static void moveZeroes(int[] nums) throws Exception {
-        int current_i=0;
+        int index = 0;
+        final double MAX_ALLOWED_VALUE = Math.pow(10,4);
 
-        if(nums.length<1 || nums.length>Math.pow(10,4)) {
+        if(nums.length < 1 || nums.length > MAX_ALLOWED_VALUE) {
             throw new Exception("Bad array length.");
         }
 
         for (int i = 0; i < nums.length; i++) {
-            if(i != current_i) {
-                nums[current_i] = nums[i];
+            if(i != index) {
+                nums[index] = nums[i];
             }
             if(nums[i] != 0) {
-                current_i++;
+                index++;
             }
         }
-        while(current_i<nums.length) {
-            nums[current_i] = 0;
-            current_i++;
+        while(index<nums.length) {
+            nums[index] = 0;
+            index++;
         }
-    }
-
-    public static void print(int[] nums ) {
-        System.out.print('[');
-        for (int i = 0; i < nums.length; i++) {
-            System.out.print(nums[i]);
-            if(i < nums.length-1) {
-                System.out.print(',');
-            }
-        }
-        System.out.println(']');
     }
 }

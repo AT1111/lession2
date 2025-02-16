@@ -4,8 +4,6 @@ public class Solution1 {
     public static void main(String[] args) throws Exception {
         ListNode example1;
         int[] head = {1,2,3,4,5};
-        // int[] head = {1,2};
-        // int[] head = {};
 
         example1 = ListNode.arrayToListNode(head);
 
@@ -17,7 +15,7 @@ public class Solution1 {
         ListNode.print(example1);
 
         System.out.print("Output recursively: ");
-        example1 = reverseListRecursiv(null,example1);
+        example1 = reverseListRecursiv(example1);
         ListNode.print(example1);
     }
 
@@ -34,7 +32,11 @@ public class Solution1 {
         return prev;
     }
 
-    public static ListNode reverseListRecursiv(ListNode prev, ListNode head) {
+    public static ListNode reverseListRecursiv(ListNode head) {
+        return reverseListRecursiv(null, head);
+    }
+
+    private static ListNode reverseListRecursiv(ListNode prev, ListNode head) {
         ListNode current;
 
         if(head != null) {

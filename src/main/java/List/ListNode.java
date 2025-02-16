@@ -7,17 +7,17 @@ public class ListNode {
     ListNode(int val) { this.val = val; }
     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
 
-    public static ListNode arrayToListNode(int[] head ) throws Exception {
+    public static ListNode arrayToListNode(int[] nums ) throws Exception {
         ListNode listNode=null;
-        if(head.length > 5000) {
+        if(nums.length > 5000) {
             throw new Exception("Bad number of nodes.");
         }
 
-        for(int i = head.length-1; i>=0; i--) {
-            if(head[i] > 5000 || head[i] < -5000) {
+        for(int i = nums.length-1; i>=0; i--) {
+            if(nums[i] > 5000 || nums[i] < -5000) {
                 throw new Exception("Bad node value.");
             }
-            listNode = new ListNode(head[i],listNode);
+            listNode = new ListNode(nums[i],listNode);
         }
         return listNode;
     }
